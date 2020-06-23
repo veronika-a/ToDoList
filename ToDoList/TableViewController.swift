@@ -44,9 +44,10 @@ class TableViewController: UITableViewController {
         let currentItem = ToDoItems[indexPath.row]
         cell.textLabel?.text = currentItem["Name"] as? String
         
-        if (currentItem["isCompleted"] as? Bool) == true {
+        if (currentItem["isCompleted"] as! Bool == true ) {
             cell.accessoryType = .checkmark
-        } else{
+        }
+        else {
             cell.accessoryType = .none
         }
         
@@ -75,10 +76,15 @@ class TableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         tableView.deselectRow(at: indexPath, animated: true)
 
-        changeState(at: indexPath.row)
+        if changeState(at: indexPath.row){
+            tableView.cellForRow(at: indexPath)? .accessoryType
+                = .checkmark
+        } else {
+             tableView.cellForRow(at: indexPath)? .accessoryType
+                = .none
+        }
     }
     /*
     // Override to support rearranging the table view.
