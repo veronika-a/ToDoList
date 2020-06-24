@@ -9,10 +9,10 @@
 /* Begin PBXBuildFile section */
 		FB56C77224A0E3B70087228F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB56C77124A0E3B70087228F /* AppDelegate.swift */; };
 		FB56C77924A0E3B70087228F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB56C77724A0E3B70087228F /* Main.storyboard */; };
-		FB56C77B24A0E3B90087228F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB56C77A24A0E3B90087228F /* Assets.xcassets */; };
 		FB56C77E24A0E3B90087228F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB56C77C24A0E3B90087228F /* LaunchScreen.storyboard */; };
-		FB56C78624A0E44A0087228F /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB56C78524A0E44A0087228F /* TableViewController.swift */; };
 		FB56C78824A0E4570087228F /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB56C78724A0E4570087228F /* Model.swift */; };
+		FBA91B3E24A374BD009F20B8 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB56C78524A0E44A0087228F /* TableViewController.swift */; };
+		FBA91B3F24A37976009F20B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB56C77A24A0E3B90087228F /* Assets.xcassets */; };
 		FBAF5D0E24A0F2B100A32510 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAF5D0D24A0F2B100A32510 /* SceneDelegate.swift */; };
 /* End PBXBuildFile section */
 
@@ -20,7 +20,7 @@
 		FB56C76E24A0E3B70087228F /* ToDoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB56C77124A0E3B70087228F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FB56C77824A0E3B70087228F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		FB56C77A24A0E3B90087228F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FB56C77A24A0E3B90087228F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = /Users/veronika_andrianova/Desktop/ToDoList/ToDoList/Assets.xcassets; sourceTree = "<absolute>"; };
 		FB56C77D24A0E3B90087228F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FB56C77F24A0E3B90087228F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FB56C78524A0E44A0087228F /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
@@ -96,6 +96,9 @@
 		FB56C76624A0E3B70087228F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					uncheck,
+				);
 				LastSwiftUpdateCheck = 1150;
 				LastUpgradeCheck = 1150;
 				ORGANIZATIONNAME = "Veronika Andrianova";
@@ -129,7 +132,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB56C77E24A0E3B90087228F /* LaunchScreen.storyboard in Resources */,
-				FB56C77B24A0E3B90087228F /* Assets.xcassets in Resources */,
+				FBA91B3F24A37976009F20B8 /* Assets.xcassets in Resources */,
 				FB56C77924A0E3B70087228F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -142,9 +145,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB56C77224A0E3B70087228F /* AppDelegate.swift in Sources */,
-				FB56C78624A0E44A0087228F /* TableViewController.swift in Sources */,
 				FB56C78824A0E4570087228F /* Model.swift in Sources */,
 				FBAF5D0E24A0F2B100A32510 /* SceneDelegate.swift in Sources */,
+				FBA91B3E24A374BD009F20B8 /* TableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

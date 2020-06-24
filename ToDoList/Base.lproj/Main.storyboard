@@ -16,12 +16,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="Cell" id="mkX-cC-AgW">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell" textLabel="buy-TI-O2H" imageView="BK9-0Q-Fy5" style="IBUITableViewCellStyleDefault" id="mkX-cC-AgW">
                                 <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mkX-cC-AgW" id="y9e-XC-Ths">
-                                    <rect key="frame" x="0.0" y="0.0" width="370" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="buy-TI-O2H">
+                                            <rect key="frame" x="62" y="0.0" width="332" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="uncheck" id="BK9-0Q-Fy5">
+                                            <rect key="frame" x="20" y="8" width="27" height="27"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </imageView>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -31,11 +44,18 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="ToDo Items" id="tVP-gu-guR">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="AXD-GK-OSU">
-                            <connections>
-                                <action selector="pushAddAction:" destination="dhY-t4-Mbq" id="Dfn-a5-TFJ"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="add" id="AXD-GK-OSU">
+                                <connections>
+                                    <action selector="pushAddAction:" destination="dhY-t4-Mbq" id="Dfn-a5-TFJ"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="edit" id="gmU-IJ-dcu">
+                                <connections>
+                                    <action selector="pushEditAction:" destination="dhY-t4-Mbq" id="SFz-4t-h7T"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tvb-Yg-S74" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -61,4 +81,7 @@
             <point key="canvasLocation" x="107.24637681159422" y="42.857142857142854"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="uncheck" width="27" height="27"/>
+    </resources>
 </document>

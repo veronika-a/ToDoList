@@ -8,7 +8,12 @@
 
 import UIKit
 
+
 class TableViewController: UITableViewController {
+    
+    @IBAction func pushEditAction(_ sender: Any) {
+        tableView.setEditing(!tableView.isEditing, animated: true)
+    }
     
     @IBAction func pushAddAction(_ sender: Any) {
 
@@ -66,10 +71,12 @@ class TableViewController: UITableViewController {
         cell.textLabel?.text = currentItem["Name"] as? String
         
         if (currentItem["isCompleted"] as! Bool == true ) {
-            cell.accessoryType = .checkmark
+            cell.imageView?.image = UIImage(named: "check")
+          //  cell.accessoryType = .checkmark
         }
         else {
-            cell.accessoryType = .none
+             cell.imageView?.image = UIImage(named: "uncheck")
+          //  cell.accessoryType = .none
         }
         
         return cell
@@ -100,19 +107,20 @@ class TableViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
 
         if changeState(at: indexPath.row){
-            tableView.cellForRow(at: indexPath)? .accessoryType
-                = .checkmark
+            tableView.cellForRow(at: indexPath)? .imageView?.image = UIImage(named: "check")
         } else {
-             tableView.cellForRow(at: indexPath)? .accessoryType
-                = .none
+             tableView.cellForRow(at: indexPath)? .imageView?.image = UIImage(named: "uncheck")
         }
     }
-    /*
+    
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+        moveItem(fromIndex: fromIndexPath.row, toIndex: to.row)
+        
+        tableView.reloadData()
+        
     }
-    */
+    
 
     /*
     // Override to support conditional rearranging of the table view.
