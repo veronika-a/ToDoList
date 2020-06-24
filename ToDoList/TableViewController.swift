@@ -13,6 +13,10 @@ class TableViewController: UITableViewController {
     
     @IBAction func pushEditAction(_ sender: Any) {
         tableView.setEditing(!tableView.isEditing, animated: true)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3 ){
+            self.tableView.reloadData()
+
+        }
     }
     
     @IBAction func pushAddAction(_ sender: Any) {
@@ -45,6 +49,8 @@ class TableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        tableView.tableFooterView = UIView()
+        tableView.backgroundColor = UIColor.groupTableViewBackground
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -77,6 +83,14 @@ class TableViewController: UITableViewController {
         else {
              cell.imageView?.image = UIImage(named: "uncheck")
           //  cell.accessoryType = .none
+        }
+        
+        if( tableView.isEditing){
+            cell.textLabel?.alpha = 0.4
+            cell.imageView?.alpha = 0.4
+        } else{
+            cell.textLabel?.alpha = 1
+            cell.imageView?.alpha = 1
         }
         
         return cell
@@ -121,7 +135,21 @@ class TableViewController: UITableViewController {
         
     }
     
-
+    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        if(tableView.isEditing){
+            return .none
+        } else {
+            return .delete
+        }
+        
+    }
+    
+    override func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
+        
+        return false
+    }
+    
+    
     /*
     // Override to support conditional rearranging of the table view.
     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
