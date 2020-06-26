@@ -24,10 +24,39 @@ var ToDoItems : [[String : Any]] {
     }
 }
 
+var Users : [[String : Any]] {
+    get{
+        if let array = UserDefaults.standard.array(forKey: "UserDataKey") as? [[String:Any]]{
+             return array
+         } else {
+             return []
+         }
+    }
+    
+    set{
+        UserDefaults.standard.set(newValue, forKey: "UserDataKey")
+        UserDefaults.standard.synchronize()
+    }
+}
 
+func addNewUser(nameUser: String, money: Double = 0){
+    Users.append(["Name": nameUser, "Money": money] )
+}
 
-func addItem(nameItem: String, isCompleted : Bool = false){
-    ToDoItems.append(["Name": nameItem, "isCompleted" : isCompleted])
+func removeUser(at index: Int){
+    Users.remove(at: index)
+}
+func editUser(at index: Int){
+    
+}
+func cashUser(sum: Double, index: Int) -> Float{
+   // Users.formIndex(after: index)
+    let cash =  (Users[index]["Money"] as! Float) - Float(sum)/(Float(Users.count))
+    return cash
+}
+
+func addItem(nameItem: String, isCompleted : Bool = false, price : Double = 0 , amount: Int = 1){
+    ToDoItems.append(["Name": nameItem, "isCompleted" : isCompleted, "Price" : price] )
 }
 
 func removeItem(at index: Int){
@@ -39,10 +68,26 @@ func changeState(at item : Int ) -> Bool {
     return (ToDoItems[item]["isCompleted"]) as! Bool
 }
 
+func changePrice(at item : Int , price : Double) -> Double {
+    ToDoItems[item]["Price"] = price
+    return ToDoItems[item]["Price"] as! Double
+}
+
 func moveItem(fromIndex: Int, toIndex: Int){
 
     let from = ToDoItems[fromIndex]
     ToDoItems.remove(at: fromIndex)
     ToDoItems.insert(from, at: toIndex)
+}
+
+func priceSum() -> Double {
+    var sum = 0.0
+    for i in 0..<ToDoItems.count {
+        if( (ToDoItems[i]["isCompleted"] as! Bool ) == true)
+        {
+            sum += ToDoItems[i]["Price"] as! Double
+        }
+    }
+    return sum
 }
 
