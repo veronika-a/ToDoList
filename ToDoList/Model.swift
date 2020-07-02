@@ -55,8 +55,21 @@ func cashUser(sum: Double, index: Int) -> Float{
     return cash
 }
 
-func addItem(nameItem: String, isCompleted : Bool = false, price : Double = 0 , amount: Int = 1){
+func addItem(nameItem: String, isCompleted : Bool =  true, price : Double = 0 , amount: Int = 1){
     ToDoItems.append(["Name": nameItem, "isCompleted" : isCompleted, "Price" : price] )
+}
+
+func addUserItem(item : Int, masUsers : [String] = [] ){
+    if( masUsers == [] ){
+        var masU = [String]()
+        for i in 0..<Users.count {
+            masU.append(Users[i]["Name"] as! String)
+        }
+        ToDoItems[item]["Users"] = masU
+    }
+    else {
+       ToDoItems[item]["User"] = masUsers
+    }
 }
 
 func removeItem(at index: Int){

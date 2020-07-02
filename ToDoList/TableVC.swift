@@ -40,7 +40,7 @@ class TableVC: UITableViewController {
                let newItem = alertController.textFields![0].text
                 let newPrice =  alertController.textFields![1].text ?? "0.0"
                 let newPriceD = Double(newPrice) ?? 0.0
-                addItem(nameItem: newItem!, price: newPriceD ?? 0)
+                addItem(nameItem: newItem!, price: newPriceD)
                 self.tableView.reloadData()
               }
         
@@ -80,7 +80,14 @@ class TableVC: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
 
         let currentItem = ToDoItems[indexPath.row]
+        let price = currentItem["Price"] as? Double
+        let priceS : String = String(format:"%.1f", price!)
+        
         cell.textLabel?.text = currentItem["Name"] as? String
+        cell.detailTextLabel?.text = priceS
+        
+        addUserItem(item: indexPath.row)
+
         
         if (currentItem["isCompleted"] as! Bool == true ) {
             cell.imageView?.image = UIImage(named: "check")
