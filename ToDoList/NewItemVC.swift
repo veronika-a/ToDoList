@@ -16,12 +16,20 @@ class NewItemVC: UIViewController ,UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var PriceTf: UITextField!
     
+    @available(iOS 13.0, *)
     @IBAction func Done(_ sender: Any) {
         let newItem = NameTF.text
          let newPrice =  PriceTf.text ?? "0.0"
          let newPriceD = Double(newPrice) ?? 0.0
          addItem(nameItem: newItem!, price: newPriceD)
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+      
+         guard let tableVC = storyboard.instantiateViewController(identifier: "ToDoItems") as? TableVC else { return }
+        show(tableVC, sender: nil)
+
     }
+    
     
     func numberOfSections(in tableView: UITableView) -> Int {
               // #warning Incomplete implementation, return the number of sections

@@ -18,7 +18,6 @@ class TableVC: UITableViewController {
 
         }
     }
-    
 //    @IBAction func pushAddAction(_ sender: Any) {
 //
 //       let alertController = UIAlertController(title: "Create new item", message: nil, preferredStyle: .alert)
