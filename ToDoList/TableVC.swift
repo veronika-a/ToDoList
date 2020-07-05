@@ -19,44 +19,44 @@ class TableVC: UITableViewController {
         }
     }
     
-    @IBAction func pushAddAction(_ sender: Any) {
-
-       let alertController = UIAlertController(title: "Create new item", message: nil, preferredStyle: .alert)
-        alertController.addTextField { (textField) in
-            textField.placeholder = "New item name"
-        }
-        alertController.addTextField { (textField2) in
-                  textField2.placeholder = "New price"
-              }
-        
-        let alertAction1 = UIAlertAction(title: "Cancel", style: .default)
-        { (alert) in
-            
-        }
-        let alertAction2 = UIAlertAction(title: "Create", style: .cancel)
-              { (alert) in
-                  //добавить новую запись
-                
-               let newItem = alertController.textFields![0].text
-                let newPrice =  alertController.textFields![1].text ?? "0.0"
-                let newPriceD = Double(newPrice) ?? 0.0
-                addItem(nameItem: newItem!, price: newPriceD)
-                self.tableView.reloadData()
-              }
-        
-        alertController.addAction(alertAction1)
-        alertController.addAction(alertAction2)
-
-        present(alertController, animated: true, completion: nil)
-        
-      }
-  
+//    @IBAction func pushAddAction(_ sender: Any) {
+//
+//       let alertController = UIAlertController(title: "Create new item", message: nil, preferredStyle: .alert)
+//        alertController.addTextField { (textField) in
+//            textField.placeholder = "New item name"
+//        }
+//        alertController.addTextField { (textField2) in
+//                  textField2.placeholder = "New price"
+//              }
+//
+//        let alertAction1 = UIAlertAction(title: "Cancel", style: .default)
+//        { (alert) in
+//
+//        }
+//        let alertAction2 = UIAlertAction(title: "Create", style: .cancel)
+//              { (alert) in
+//                  //добавить новую запись
+//                
+//               let newItem = alertController.textFields![0].text
+//                let newPrice =  alertController.textFields![1].text ?? "0.0"
+//                let newPriceD = Double(newPrice) ?? 0.0
+//                addItem(nameItem: newItem!, price: newPriceD)
+//                self.tableView.reloadData()
+//              }
+//
+//        alertController.addAction(alertAction1)
+//        alertController.addAction(alertAction2)
+//
+//        present(alertController, animated: true, completion: nil)
+//
+//      }  
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        tableView.reloadData()
         tableView.tableFooterView = UIView()
         tableView.backgroundColor = UIColor.groupTableViewBackground
+
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -86,7 +86,7 @@ class TableVC: UITableViewController {
         cell.textLabel?.text = currentItem["Name"] as? String
         cell.detailTextLabel?.text = priceS
         
-        addUserItem(item: indexPath.row)
+        //addUserItem(item: indexPath.row)
 
         
         if (currentItem["isCompleted"] as! Bool == true ) {

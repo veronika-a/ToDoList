@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ResultVC: UIViewController,UITableViewDelegate, UITableViewDataSource {
+class ResultVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var totalSum: UILabel!
      @IBOutlet weak var UsersTableView: UITableView!

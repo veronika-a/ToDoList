@@ -68,6 +68,7 @@
                             <barButtonItem systemItem="add" id="AXD-GK-OSU">
                                 <connections>
                                     <action selector="pushAddAction:" destination="dhY-t4-Mbq" id="Dfn-a5-TFJ"/>
+                                    <segue destination="ud5-1H-tgs" kind="show" id="Z7I-J5-JpA"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem systemItem="edit" id="gmU-IJ-dcu">
@@ -85,7 +86,7 @@
         <!--Users TableVC-->
         <scene sceneID="uDb-TY-RPG">
             <objects>
-                <tableViewController id="5m6-eN-k6t" customClass="UsersTableVC" customModule="ToDoList" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="UserVC" id="5m6-eN-k6t" customClass="UsersTableVC" customModule="ToDoList" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="c5U-WF-II2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -143,7 +144,7 @@
         <!--ResultVC-->
         <scene sceneID="u9a-xE-vlc">
             <objects>
-                <viewController id="Vot-zn-Ghz" customClass="ResultVC" customModule="ToDoList" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ResultVC" id="Vot-zn-Ghz" customClass="ResultVC" customModule="ToDoList" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OGa-ua-whp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -212,7 +213,70 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YPq-nM-PPh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1176.8115942028987" y="719.86607142857144"/>
+            <point key="canvasLocation" x="1177" y="808"/>
+        </scene>
+        <!--New ItemVC-->
+        <scene sceneID="NP8-9I-Haz">
+            <objects>
+                <viewController storyboardIdentifier="NewItemVC" id="ud5-1H-tgs" customClass="NewItemVC" customModule="ToDoList" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="EJp-yK-Wro">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Create new item" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZYI-FF-omZ">
+                                <rect key="frame" x="133" y="127" width="148" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="PriceTF" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Price 0.0" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bpt-AU-4up">
+                                <rect key="frame" x="75" y="276" width="265" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="NameTF" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New item name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YFo-72-A5A">
+                                <rect key="frame" x="75" y="203" width="265" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="x11-kv-nTq">
+                                <rect key="frame" x="0.0" y="378" width="414" height="371"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="PUb-lD-gpL">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="PUb-lD-gpL" id="zwK-LA-Nf3">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="peQ-AJ-GFA"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Si2-a4-OOG">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="AON-8L-jHq">
+                            <connections>
+                                <action selector="Done:" destination="ud5-1H-tgs" id="iRs-hu-jsz"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="NameTF" destination="YFo-72-A5A" id="mQJ-Hq-6KV"/>
+                        <outlet property="PriceTf" destination="bpt-AU-4up" id="bFx-CM-paA"/>
+                        <outlet property="UsersTV" destination="x11-kv-nTq" id="G5b-zC-gR1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EOK-1x-baW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2224.6376811594205" y="762.72321428571422"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="0Ts-Ck-ARa">
