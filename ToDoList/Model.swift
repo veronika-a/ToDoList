@@ -49,26 +49,86 @@ func removeUser(at index: Int){
 func editUser(at index: Int){
     
 }
-func cashUser(sum: Double, index: Int) -> Float{
+
+func cashUserI(sum: Double, index: Int) -> Float{
    // Users.formIndex(after: index)
-    let cash =  (Users[index]["Money"] as! Float) - Float(sum)/(Float(Users.count))
+    let UsersMoney =  (Users[index]["Money"] as! Float)
+    let Sum = Float(sum)
+    
+    let cash = UsersMoney - Sum/(Float(Users.count)) //sameSum
+    
+    //ToDo
     return cash
 }
 
-func addItem(nameItem: String, isCompleted : Bool =  true, price : Double = 0 , amount: Int = 1){
+func cashUser(sum: Double, index: Int) -> Float{
+   // Users.formIndex(after: index)
+    var cash : Float = 0
+    let UsersMoney =  (Users[index]["Money"] as! Float)
+    //var Us = [String]()
+    var sumU : Double = 0
+    let ItemsCount = ToDoItems.count
+    var UsCount : Int = 0
+  //  let Us = ToDoItems[0]["Users"] as! [String]
+
+    
+    for u in 0..<ItemsCount {
+
+        let Us = ToDoItems[u]["Users"] as! [String]
+        UsCount = Us.count
+        for s in 0..<UsCount {
+            if(Us[s] == Users[index]["Name"] as! String){
+                sumU += (ToDoItems[u]["Price"] as! Double ) / Double(UsCount)
+            }
+        }
+    }
+    
+     cash = UsersMoney - (Float(sumU))
+    
+    //ToDo
+    return cash
+}
+
+
+func addItem(nameItem: String,
+             isCompleted : Bool =  true,
+             price : Double = 0 ,
+             amount: Int = 1,
+             masUsers : [String] = [])
+{
+       if( masUsers == [] ){
+           var masU = [String]()
+           for i in 0..<Users.count {
+               masU.append(Users[i]["Name"] as! String)
+           }
+        ToDoItems.append(["Name": nameItem, "isCompleted" : isCompleted, "Price" : price, "Users": masU] )
+       }
+       else {
+        ToDoItems.append(["Name": nameItem, "isCompleted" : isCompleted, "Price" : price, "Users": masUsers] )
+
+       }
+}
+
+func addItemI(nameItem: String, isCompleted : Bool =  true, price : Double = 0 , amount: Int = 1){
     ToDoItems.append(["Name": nameItem, "isCompleted" : isCompleted, "Price" : price] )
 }
 
-func addUserItem(item : Int, masUsers : [String] = [] ){
+func addUserItem(nameItem : String, masUsers : [String] = [] ){
+    var numItem : Int = 0
+    for n in 0..<ToDoItems.count {
+        if( ToDoItems[n]["Name"] as! String == nameItem){
+        numItem = n
+        }
+    }
     if( masUsers == [] ){
         var masU = [String]()
         for i in 0..<Users.count {
             masU.append(Users[i]["Name"] as! String)
         }
-        ToDoItems[item]["Users"] = masU
+        ToDoItems[numItem]["Users"] = masU
     }
     else {
-       ToDoItems[item]["User"] = masUsers
+       ToDoItems[numItem]["User"] = masUsers
     }
 }
 

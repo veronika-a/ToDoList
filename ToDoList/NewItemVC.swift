@@ -21,7 +21,20 @@ class NewItemVC: UIViewController ,UITableViewDelegate, UITableViewDataSource {
         let newItem = NameTF.text
          let newPrice =  PriceTf.text ?? "0.0"
          let newPriceD = Double(newPrice) ?? 0.0
-         addItem(nameItem: newItem!, price: newPriceD)
+         //addItem(nameItem: newItem!, price: newPriceD)
+        
+        var masU = [String]()
+
+       let cells = UsersTV.visibleCells
+
+      for cell in cells {
+        if(cell.imageView?.image == UIImage(named: "check")){
+                masU.append(cell.textLabel?.text ?? "" )
+            }
+        
+        }
+         addItem(nameItem: newItem!, price: newPriceD,  masUsers: masU)
+       // addUserItem(nameItem: newItem!,)
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
       
@@ -58,13 +71,15 @@ class NewItemVC: UIViewController ,UITableViewDelegate, UITableViewDataSource {
         super.viewDidLoad()
         UsersTV.delegate = self
         UsersTV.dataSource = self
+        
         // Do any additional setup after loading the view.
     }
     
      func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
           UsersTV.deselectRow(at: indexPath, animated: true)
+        
 
-          if changeState(at: indexPath.row){
+          if (UsersTV.cellForRow(at: indexPath)? .imageView?.image == UIImage(named: "uncheck")){
               UsersTV.cellForRow(at: indexPath)? .imageView?.image = UIImage(named: "check")
           } else {
                UsersTV.cellForRow(at: indexPath)? .imageView?.image = UIImage(named: "uncheck")

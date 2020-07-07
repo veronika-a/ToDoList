@@ -31,7 +31,7 @@ class ResultVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
            let cell = tableView.dequeueReusableCell(withIdentifier: "UsersCell", for: indexPath)
 
            let currentItem = Users[indexPath.row]
-           let cashU = cashUser(sum: priceSum(), index: indexPath.row)
+        let cashU = cashUser(sum: priceSum(), index: indexPath.row)
            let cashUD: String = String(format:"%.1f", cashU)
            
            cell.textLabel?.text = currentItem["Name"] as? String
