@@ -51,13 +51,10 @@ func editUser(at index: Int){
 }
 
 func cashUserI(sum: Double, index: Int) -> Float{
-   // Users.formIndex(after: index)
     let UsersMoney =  (Users[index]["Money"] as! Float)
     let Sum = Float(sum)
     
     let cash = UsersMoney - Sum/(Float(Users.count)) //sameSum
-    
-    //ToDo
     return cash
 }
 
@@ -69,23 +66,20 @@ func cashUser(sum: Double, index: Int) -> Float{
     var sumU : Double = 0
     let ItemsCount = ToDoItems.count
     var UsCount : Int = 0
-  //  let Us = ToDoItems[0]["Users"] as! [String]
-
     
     for u in 0..<ItemsCount {
-
+        if(ToDoItems[u]["isCompleted"] as! Bool){
         let Us = ToDoItems[u]["Users"] as! [String]
         UsCount = Us.count
         for s in 0..<UsCount {
             if(Us[s] == Users[index]["Name"] as! String){
                 sumU += (ToDoItems[u]["Price"] as! Double ) / Double(UsCount)
             }
+            }
         }
     }
     
-     cash = UsersMoney - (Float(sumU))
-    
-    //ToDo
+    cash = UsersMoney - (Float(sumU))
     return cash
 }
 

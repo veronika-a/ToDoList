@@ -65,7 +65,6 @@ class NewItemVC: UIViewController ,UITableViewDelegate, UITableViewDataSource {
 
                  return cell
     }
-       
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,8 +84,6 @@ class NewItemVC: UIViewController ,UITableViewDelegate, UITableViewDataSource {
                UsersTV.cellForRow(at: indexPath)? .imageView?.image = UIImage(named: "uncheck")
           }
       }
-    
- 
     
     /*
     // MARK: - Navigation

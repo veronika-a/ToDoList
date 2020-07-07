@@ -20,7 +20,6 @@ class ResultVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
     }
    
-    
        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
           // #warning Incomplete implementation, return the number of rows
           return Users.count
@@ -46,12 +45,11 @@ class ResultVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         UsersTableView.delegate = self
         UsersTableView.dataSource = self
         totalSum.text = String(format:"%.1f", priceSum())
+        UsersTableView.reloadData()
+
         // Do any additional setup after loading the view.
-        
-        
     }
     
-
     /*
     // MARK: - Navigation
 
