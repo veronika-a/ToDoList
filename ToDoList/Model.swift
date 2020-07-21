@@ -46,8 +46,13 @@ func addNewUser(nameUser: String, money: Double = 0){
 func removeUser(at index: Int){
     Users.remove(at: index)
 }
-func editUser(at index: Int){
-    
+func editUser(index: Int, name: String, money: Double){
+        Users[index]["Name"] = name
+        Users[index]["Money"] = money
+}
+
+func editItem(index: Int){
+      
 }
 
 func cashUserI(sum: Double, index: Int) -> Float{
@@ -102,6 +107,7 @@ func addItem(nameItem: String,
 
        }
 }
+
 
 func addItemI(nameItem: String, isCompleted : Bool =  true, price : Double = 0 , amount: Int = 1){
     ToDoItems.append(["Name": nameItem, "isCompleted" : isCompleted, "Price" : price] )

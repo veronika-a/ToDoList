@@ -84,16 +84,11 @@ class TableVC: UITableViewController {
         cell.textLabel?.text = currentItem["Name"] as? String
         cell.detailTextLabel?.text = priceS
         
-        //addUserItem(item: indexPath.row)
-
-        
         if (currentItem["isCompleted"] as! Bool == true ) {
             cell.imageView?.image = UIImage(named: "check")
-          //  cell.accessoryType = .checkmark
         }
         else {
              cell.imageView?.image = UIImage(named: "uncheck")
-          //  cell.accessoryType = .none
         }
         
         if( tableView.isEditing){
