@@ -218,7 +218,7 @@
         <!--New ItemVC-->
         <scene sceneID="NP8-9I-Haz">
             <objects>
-                <viewController storyboardIdentifier="NewItemVC" id="ud5-1H-tgs" customClass="NewItemVC" customModule="ToDoList" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="NewItemVC" storyboardIdentifier="NewItemVC" id="ud5-1H-tgs" customClass="NewItemVC" customModule="ToDoList" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EJp-yK-Wro">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

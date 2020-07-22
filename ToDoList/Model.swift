@@ -51,9 +51,6 @@ func editUser(index: Int, name: String, money: Double){
         Users[index]["Money"] = money
 }
 
-func editItem(index: Int){
-      
-}
 
 func cashUserI(sum: Double, index: Int) -> Float{
     let UsersMoney =  (Users[index]["Money"] as! Float)
@@ -95,17 +92,31 @@ func addItem(nameItem: String,
              amount: Int = 1,
              masUsers : [String] = [])
 {
-       if( masUsers == [] ){
-           var masU = [String]()
-           for i in 0..<Users.count {
-               masU.append(Users[i]["Name"] as! String)
-           }
-        ToDoItems.append(["Name": nameItem, "isCompleted" : isCompleted, "Price" : price, "Users": masU] )
-       }
-       else {
+    
+//       if( masUsers == [] ){
+//           var masU = [String]()
+//           for i in 0..<Users.count {
+//               masU.append(Users[i]["Name"] as! String)
+//           }
+//        ToDoItems.append(["Name": nameItem, "isCompleted" : isCompleted, "Price" : price, "Users": masU] )
+//       }
+//       else {
+    
         ToDoItems.append(["Name": nameItem, "isCompleted" : isCompleted, "Price" : price, "Users": masUsers] )
 
-       }
+}
+
+
+func editItem(index: Int,
+              nameItem: String,
+              price : Double = 0,
+              amount: Int = 1,
+              masUsers : [String]){
+     ToDoItems[index]["Name"] = nameItem
+     ToDoItems[index]["Price"] = price
+     ToDoItems[index]["Users"] = masUsers
+
+
 }
 
 

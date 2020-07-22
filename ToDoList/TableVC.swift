@@ -10,12 +10,11 @@ import UIKit
 
 
 class TableVC: UITableViewController {
-    
+        
     @IBAction func pushEditAction(_ sender: Any) {
         tableView.setEditing(!tableView.isEditing, animated: true)
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3 ){
             self.tableView.reloadData()
-
         }
     }
 //    @IBAction func pushAddAction(_ sender: Any) {
@@ -94,6 +93,7 @@ class TableVC: UITableViewController {
         if( tableView.isEditing){
             cell.textLabel?.alpha = 0.4
             cell.imageView?.alpha = 0.4
+            
         } else{
             cell.textLabel?.alpha = 1
             cell.imageView?.alpha = 1
@@ -126,11 +126,34 @@ class TableVC: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
 
+        tableView.allowsSelectionDuringEditing = true
+               tableView.allowsSelection = true
+        
+        if(!tableView.isEditing){
         if changeState(at: indexPath.row){
             tableView.cellForRow(at: indexPath)? .imageView?.image = UIImage(named: "check")
         } else {
              tableView.cellForRow(at: indexPath)? .imageView?.image = UIImage(named: "uncheck")
         }
+        }
+         else{
+        if #available(iOS 13.0, *) {
+            showTVC(index: indexPath.row)
+        } else {
+            // Fallback on earlier versions
+        }
+        }
+    }
+    
+    @available(iOS 13.0, *)
+    func showTVC(index: Int){
+   
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+           guard let tableVC = storyboard.instantiateViewController(identifier: "NewItemVC") as? NewItemVC else { return }
+        tableVC.currState = false
+        tableVC.currItem = index
+        show(tableVC, sender: nil)
     }
     
     // Override to support rearranging the table view.

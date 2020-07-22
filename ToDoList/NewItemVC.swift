@@ -9,8 +9,10 @@
 import UIKit
 
 class NewItemVC: UIViewController ,UITableViewDelegate, UITableViewDataSource {
-
    
+    var currState: Bool = true
+    var currItem: Int = 0
+    
     @IBOutlet weak var NameTF: UITextField!
     @IBOutlet weak var UsersTV: UITableView!
 
@@ -70,6 +72,28 @@ class NewItemVC: UIViewController ,UITableViewDelegate, UITableViewDataSource {
         super.viewDidLoad()
         UsersTV.delegate = self
         UsersTV.dataSource = self
+        
+        if(!currState){
+            
+            let cells = UsersTV.visibleCells
+
+//           for cell in cells {
+//            for item in 1..<Users.count {
+//                
+//            }
+//           if(){
+//            
+//            cell.imageView?.image == UIImage(named: "check")
+//                }
+//           else{
+//            
+//            }
+//
+//           }
+            NameTF.text =  ToDoItems[currItem]["Name"] as? String
+        }
+        
+        //currentState = state
         
         // Do any additional setup after loading the view.
     }
