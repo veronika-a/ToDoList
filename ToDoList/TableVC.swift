@@ -150,10 +150,10 @@ class TableVC: UITableViewController {
    
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
-           guard let tableVC = storyboard.instantiateViewController(identifier: "NewItemVC") as? NewItemVC else { return }
-        tableVC.currState = false
-        tableVC.currItem = index
-        show(tableVC, sender: nil)
+           guard let editItem = storyboard.instantiateViewController(identifier: "NewItemVC") as? NewItemVC else { return }
+        editItem.currState = false
+        editItem.currItem = index
+        show(editItem, sender: nil)
     }
     
     // Override to support rearranging the table view.

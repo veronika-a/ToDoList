@@ -19,21 +19,20 @@ class UsersTableVC: UITableViewController {
         }
     }
     @IBAction func AddUser(_ sender: Any) {
-        let alertController = UIAlertController(title: "Create new item", message: nil, preferredStyle: .alert)
+        let alertController = UIAlertController(title: "New user", message: nil, preferredStyle: .alert)
               alertController.addTextField { (textField) in
-                  textField.placeholder = "New user name"
+                  textField.placeholder = "Name"
               }
               alertController.addTextField { (textField2) in
                         textField2.placeholder = "Money"
                     }
               
-              let alertAction1 = UIAlertAction(title: "Cancel", style: .default)
+              let alertAction1 = UIAlertAction(title: "Cancel", style: .cancel)
               { (alert) in
                   
               }
-              let alertAction2 = UIAlertAction(title: "Create", style: .cancel)
+        let alertAction2 = UIAlertAction(title: "Create", style: .default)
                     { (alert) in
-                        //добавить новую запись
                      let newUserItem = alertController.textFields![0].text
                       let moneyUser =  alertController.textFields![1].text ?? "0.0"
                         let moneyUserD = Double(moneyUser) ?? 0.0

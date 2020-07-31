@@ -124,6 +124,7 @@ func addItemI(nameItem: String, isCompleted : Bool =  true, price : Double = 0 ,
     ToDoItems.append(["Name": nameItem, "isCompleted" : isCompleted, "Price" : price] )
 }
 
+//TODO delete user(delete in ToDoItems)
 func addUserItem(nameItem : String, masUsers : [String] = [] ){
     var numItem : Int = 0
     for n in 0..<ToDoItems.count {
@@ -172,6 +173,15 @@ func priceSum() -> Double {
             sum += ToDoItems[i]["Price"] as! Double
         }
     }
+    return sum
+}
+
+func usersTotalMoney() ->Double {
+    var sum = 0.0
+    for user in 0..<Users.count {
+        sum += Users[user]["Money"] as! Double
+    }
+    
     return sum
 }
 

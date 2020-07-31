@@ -23,7 +23,6 @@ class NewItemVC: UIViewController ,UITableViewDelegate, UITableViewDataSource {
         let newItem = NameTF.text
          let newPrice =  PriceTf.text ?? "0.0"
          let newPriceD = Double(newPrice) ?? 0.0
-         //addItem(nameItem: newItem!, price: newPriceD)
         
         var masU = [String]()
 
@@ -33,16 +32,18 @@ class NewItemVC: UIViewController ,UITableViewDelegate, UITableViewDataSource {
         if(cell.imageView?.image == UIImage(named: "check")){
                 masU.append(cell.textLabel?.text ?? "" )
             }
-        
         }
+        if(currState){
          addItem(nameItem: newItem!, price: newPriceD,  masUsers: masU)
-       // addUserItem(nameItem: newItem!,)
-        
+        }
+        else{
+            editItem(index: currItem, nameItem: newItem!, price: newPriceD, masUsers: masU)
+        }
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
       
          guard let tableVC = storyboard.instantiateViewController(identifier: "ToDoItems") as? TableVC else { return }
         show(tableVC, sender: nil)
-
+        
     }
     
     
@@ -62,10 +63,20 @@ class NewItemVC: UIViewController ,UITableViewDelegate, UITableViewDataSource {
 
         let currentItem = Users[indexPath.row]
               cell.textLabel?.text = currentItem["Name"] as? String
-            
-        cell.imageView?.image = UIImage(named: "check")
+        if(currState){
+            cell.imageView?.image = UIImage(named: "check")
+        }
+        else{
+            cell.imageView?.image = UIImage(named: "uncheck")
+            let masU = ToDoItems[currItem]["Users"] as! [String]
+            for item in 0..<masU.count {
+                if(masU[item] == cell.textLabel?.text){
+                    cell.imageView?.image = UIImage(named: "check")
+                }
+            }
+        }
 
-                 return cell
+        return cell
     }
     
     override func viewDidLoad() {
@@ -75,26 +86,21 @@ class NewItemVC: UIViewController ,UITableViewDelegate, UITableViewDataSource {
         
         if(!currState){
             
-            let cells = UsersTV.visibleCells
-
-//           for cell in cells {
-//            for item in 1..<Users.count {
-//                
-//            }
-//           if(){
-//            
-//            cell.imageView?.image == UIImage(named: "check")
-//                }
-//           else{
-//            
-//            }
+//            let masU = ToDoItems[currItem]["Users"] as! [String]
+//            let cells = UsersTV.visibleCells
 //
+//           for cell in cells {
+//            for item in 0..<masU.count {
+//                if(masU[item] == cell.textLabel?.text){
+//                    cell.imageView?.image = UIImage(named: "check")
+//                }
+//            }
 //           }
             NameTF.text =  ToDoItems[currItem]["Name"] as? String
+            let price = ToDoItems[currItem]["Price"] as? Double
+            PriceTf.text = String(format:"%.1f", price!)
         }
-        
-        //currentState = state
-        
+                
         // Do any additional setup after loading the view.
     }
     
