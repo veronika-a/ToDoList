@@ -44,6 +44,17 @@ func addNewUser(nameUser: String, money: Double = 0){
 }
 
 func removeUser(at index: Int){
+    let remUser = Users[index]["Name"] as! String
+    var users = [String]()
+    for item in 0..<ToDoItems.count {
+        users = ToDoItems[item]["Users"] as! [String]
+        for us in 0..<users.count {
+            if(users[us] == remUser){
+                users.remove(at: us)
+                ToDoItems[item]["Users"] = users
+            }
+        }
+    }
     Users.remove(at: index)
 }
 func editUser(index: Int, name: String, money: Double){
@@ -64,7 +75,6 @@ func cashUser(sum: Double, index: Int) -> Float{
    // Users.formIndex(after: index)
     var cash : Float = 0
     let UsersMoney =  (Users[index]["Money"] as! Float)
-    //var Us = [String]()
     var sumU : Double = 0
     let ItemsCount = ToDoItems.count
     var UsCount : Int = 0

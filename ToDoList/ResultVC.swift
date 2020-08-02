@@ -35,6 +35,13 @@ class ResultVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
            let cashUD: String = String(format:"%.1f", cashU)
            
            cell.textLabel?.text = currentItem["Name"] as? String
+        if(cashU < 0) {
+            cell.detailTextLabel?.textColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
+        }
+        else
+        {
+            cell.detailTextLabel?.textColor = #colorLiteral(red: 0, green: 0.355879426, blue: 0.03883422539, alpha: 1)
+        }
            cell.detailTextLabel?.text = cashUD
               
               return cell

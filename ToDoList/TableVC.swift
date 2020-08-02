@@ -10,56 +10,12 @@ import UIKit
 
 
 class TableVC: UITableViewController {
-        
-    @IBAction func pushEditAction(_ sender: Any) {
-        tableView.setEditing(!tableView.isEditing, animated: true)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3 ){
-            self.tableView.reloadData()
-        }
-    }
-//    @IBAction func pushAddAction(_ sender: Any) {
-//
-//       let alertController = UIAlertController(title: "Create new item", message: nil, preferredStyle: .alert)
-//        alertController.addTextField { (textField) in
-//            textField.placeholder = "New item name"
-//        }
-//        alertController.addTextField { (textField2) in
-//                  textField2.placeholder = "New price"
-//              }
-//
-//        let alertAction1 = UIAlertAction(title: "Cancel", style: .default)
-//        { (alert) in
-//
-//        }
-//        let alertAction2 = UIAlertAction(title: "Create", style: .cancel)
-//              { (alert) in
-//                  //добавить новую запись
-//                
-//               let newItem = alertController.textFields![0].text
-//                let newPrice =  alertController.textFields![1].text ?? "0.0"
-//                let newPriceD = Double(newPrice) ?? 0.0
-//                addItem(nameItem: newItem!, price: newPriceD)
-//                self.tableView.reloadData()
-//              }
-//
-//        alertController.addAction(alertAction1)
-//        alertController.addAction(alertAction2)
-//
-//        present(alertController, animated: true, completion: nil)
-//
-//      }  
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.reloadData()
         tableView.tableFooterView = UIView()
         tableView.backgroundColor = UIColor.groupTableViewBackground
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     // MARK: - Table view data source
     
@@ -177,7 +133,11 @@ class TableVC: UITableViewController {
         
         return false
     }
-    
+    override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+        if #available(iOS 13.0, *) {
+                   showTVC(index: indexPath.row)
+        }
+        }
     
     /*
     // Override to support conditional rearranging of the table view.
@@ -196,5 +156,4 @@ class TableVC: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
 }

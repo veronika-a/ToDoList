@@ -17,11 +17,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell" textLabel="buy-TI-O2H" detailTextLabel="U1X-s8-KIR" imageView="BK9-0Q-Fy5" rowHeight="70" style="IBUITableViewCellStyleValue1" id="mkX-cC-AgW">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="detailButton" indentationWidth="10" reuseIdentifier="Cell" textLabel="buy-TI-O2H" detailTextLabel="U1X-s8-KIR" imageView="BK9-0Q-Fy5" rowHeight="70" style="IBUITableViewCellStyleValue1" id="mkX-cC-AgW">
                                 <rect key="frame" x="0.0" y="28" width="414" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mkX-cC-AgW" id="y9e-XC-Ths">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="370" height="70"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="buy-TI-O2H">
@@ -36,7 +36,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </imageView>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="U1X-s8-KIR">
-                                            <rect key="frame" x="334" y="21" width="60" height="29"/>
+                                            <rect key="frame" x="302" y="21" width="60" height="29"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                             <nil key="textColor"/>
@@ -52,18 +52,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="ToDo Item" id="tVP-gu-guR">
-                        <leftBarButtonItems>
-                            <barButtonItem systemItem="done" id="9ul-w2-M2t">
-                                <connections>
-                                    <segue destination="Vot-zn-Ghz" kind="show" id="agu-Zx-C5i"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem title="Item" image="user" id="GML-Gc-yWb">
-                                <connections>
-                                    <segue destination="5m6-eN-k6t" kind="show" id="iSI-QJ-9z8"/>
-                                </connections>
-                            </barButtonItem>
-                        </leftBarButtonItems>
+                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="9ul-w2-M2t">
+                            <connections>
+                                <segue destination="Vot-zn-Ghz" kind="show" id="agu-Zx-C5i"/>
+                            </connections>
+                        </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem systemItem="add" id="AXD-GK-OSU">
                                 <connections>
@@ -71,9 +64,9 @@
                                     <segue destination="ud5-1H-tgs" kind="show" id="Z7I-J5-JpA"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem systemItem="edit" id="gmU-IJ-dcu">
+                            <barButtonItem title="Item" image="user" id="GML-Gc-yWb">
                                 <connections>
-                                    <action selector="pushEditAction:" destination="dhY-t4-Mbq" id="SFz-4t-h7T"/>
+                                    <segue destination="5m6-eN-k6t" kind="show" id="iSI-QJ-9z8"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
