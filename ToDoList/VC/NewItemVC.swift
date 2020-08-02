@@ -13,6 +13,7 @@ class NewItemVC: UIViewController ,UITableViewDelegate, UITableViewDataSource {
     var currState: Bool = true
     var currItem: Int = 0
     
+    @IBOutlet weak var TitleItem: UILabel!
     @IBOutlet weak var NameTF: UITextField!
     @IBOutlet weak var UsersTV: UITableView!
 
@@ -85,17 +86,7 @@ class NewItemVC: UIViewController ,UITableViewDelegate, UITableViewDataSource {
         UsersTV.dataSource = self
         
         if(!currState){
-            
-//            let masU = ToDoItems[currItem]["Users"] as! [String]
-//            let cells = UsersTV.visibleCells
-//
-//           for cell in cells {
-//            for item in 0..<masU.count {
-//                if(masU[item] == cell.textLabel?.text){
-//                    cell.imageView?.image = UIImage(named: "check")
-//                }
-//            }
-//           }
+            TitleItem.text = "Update item"
             NameTF.text =  ToDoItems[currItem]["Name"] as? String
             let price = ToDoItems[currItem]["Price"] as? Double
             PriceTf.text = String(format:"%.1f", price!)

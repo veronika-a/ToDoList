@@ -7,11 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FB13E68624D71B7E00B8EF0B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB13E68524D71B7E00B8EF0B /* User.swift */; };
 		FB23CE6124A6648C0000EF09 /* UsersTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB23CE6024A6648C0000EF09 /* UsersTableVC.swift */; };
 		FB56C77224A0E3B70087228F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB56C77124A0E3B70087228F /* AppDelegate.swift */; };
 		FB56C77924A0E3B70087228F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB56C77724A0E3B70087228F /* Main.storyboard */; };
 		FB56C77E24A0E3B90087228F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB56C77C24A0E3B90087228F /* LaunchScreen.storyboard */; };
-		FB56C78824A0E4570087228F /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB56C78724A0E4570087228F /* Model.swift */; };
+		FB56C78824A0E4570087228F /* ToDoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB56C78724A0E4570087228F /* ToDoItem.swift */; };
 		FBA91B3E24A374BD009F20B8 /* TableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB56C78524A0E44A0087228F /* TableVC.swift */; };
 		FBA91B3F24A37976009F20B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB56C77A24A0E3B90087228F /* Assets.xcassets */; };
 		FBAF5D0E24A0F2B100A32510 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAF5D0D24A0F2B100A32510 /* SceneDelegate.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FB13E68524D71B7E00B8EF0B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		FB23CE6024A6648C0000EF09 /* UsersTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTableVC.swift; sourceTree = "<group>"; };
 		FB56C76E24A0E3B70087228F /* ToDoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB56C77124A0E3B70087228F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -28,7 +30,7 @@
 		FB56C77D24A0E3B90087228F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FB56C77F24A0E3B90087228F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FB56C78524A0E44A0087228F /* TableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableVC.swift; sourceTree = "<group>"; };
-		FB56C78724A0E4570087228F /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		FB56C78724A0E4570087228F /* ToDoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoItem.swift; sourceTree = "<group>"; };
 		FBAF5D0D24A0F2B100A32510 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		FBCF908224A52FFA00D940A9 /* ResultVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultVC.swift; sourceTree = "<group>"; };
 		FBD5613624AFB57C0074392B /* NewItemVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemVC.swift; sourceTree = "<group>"; };
@@ -45,6 +47,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FB13E68224D71ACC00B8EF0B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FB56C78724A0E4570087228F /* ToDoItem.swift */,
+				FB13E68524D71B7E00B8EF0B /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FB13E68324D71AFE00B8EF0B /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				FBD5613624AFB57C0074392B /* NewItemVC.swift */,
+				FB23CE6024A6648C0000EF09 /* UsersTableVC.swift */,
+				FB56C78524A0E44A0087228F /* TableVC.swift */,
+				FBCF908224A52FFA00D940A9 /* ResultVC.swift */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		FB13E68424D71B0900B8EF0B /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				FB56C77724A0E3B70087228F /* Main.storyboard */,
+				FB56C77C24A0E3B90087228F /* LaunchScreen.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
 		FB56C76524A0E3B70087228F = {
 			isa = PBXGroup;
 			children = (
@@ -64,17 +95,13 @@
 		FB56C77024A0E3B70087228F /* ToDoList */ = {
 			isa = PBXGroup;
 			children = (
-				FB56C78724A0E4570087228F /* Model.swift */,
-				FB56C78524A0E44A0087228F /* TableVC.swift */,
-				FBCF908224A52FFA00D940A9 /* ResultVC.swift */,
-				FB56C77724A0E3B70087228F /* Main.storyboard */,
-				FB56C77C24A0E3B90087228F /* LaunchScreen.storyboard */,
+				FB13E68424D71B0900B8EF0B /* Storyboard */,
+				FB13E68324D71AFE00B8EF0B /* VC */,
+				FB13E68224D71ACC00B8EF0B /* Model */,
 				FBAF5D0D24A0F2B100A32510 /* SceneDelegate.swift */,
 				FB56C77124A0E3B70087228F /* AppDelegate.swift */,
 				FB56C77A24A0E3B90087228F /* Assets.xcassets */,
 				FB56C77F24A0E3B90087228F /* Info.plist */,
-				FB23CE6024A6648C0000EF09 /* UsersTableVC.swift */,
-				FBD5613624AFB57C0074392B /* NewItemVC.swift */,
 			);
 			path = ToDoList;
 			sourceTree = "<group>";
@@ -155,8 +182,9 @@
 			files = (
 				FB23CE6124A6648C0000EF09 /* UsersTableVC.swift in Sources */,
 				FB56C77224A0E3B70087228F /* AppDelegate.swift in Sources */,
-				FB56C78824A0E4570087228F /* Model.swift in Sources */,
+				FB56C78824A0E4570087228F /* ToDoItem.swift in Sources */,
 				FBAF5D0E24A0F2B100A32510 /* SceneDelegate.swift in Sources */,
+				FB13E68624D71B7E00B8EF0B /* User.swift in Sources */,
 				FBCF908324A52FFA00D940A9 /* ResultVC.swift in Sources */,
 				FBA91B3E24A374BD009F20B8 /* TableVC.swift in Sources */,
 				FBD5613724AFB57C0074392B /* NewItemVC.swift in Sources */,

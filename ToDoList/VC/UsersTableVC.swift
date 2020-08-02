@@ -10,14 +10,14 @@ import UIKit
 
 class UsersTableVC: UITableViewController {
 
-    @IBAction func EditUsers(_ sender: Any) {
-        
-        tableView.setEditing(!tableView.isEditing, animated: true)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3 ){
-            
-            self.tableView.reloadData()
-        }
-    }
+//    @IBAction func EditUsers(_ sender: Any) {
+//
+//        tableView.setEditing(!tableView.isEditing, animated: true)
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3 ){
+//
+//            self.tableView.reloadData()
+//        }
+//    }
     @IBAction func AddUser(_ sender: Any) {
         let alertController = UIAlertController(title: "New user", message: nil, preferredStyle: .alert)
               alertController.addTextField { (textField) in
@@ -122,40 +122,75 @@ class UsersTableVC: UITableViewController {
         
       // if(tableView.isEditing){
         
-         let currentItem = Users[indexPath.row]
-        let moneyU = currentItem["Money"] as! Double
-        let moneyUS: String = String(format:"%.1f", moneyU)
-        
-        let alertController = UIAlertController(title: "Edit user", message: nil, preferredStyle: .alert)
-                    alertController.addTextField { (textField) in
-                        textField.text = currentItem["Name"] as? String
-                    }
-                    alertController.addTextField { (textField2) in
-                        textField2.text = moneyUS
-                          }
-                    
-                    let alertAction1 = UIAlertAction(title: "Cancel", style: .default)
-                    { (alert) in
-                        
-                    }
-                    let alertAction2 = UIAlertAction(title: "Save", style: .cancel)
-                          { (alert) in
-                              //добавить новую запись
-                           let newName = alertController.textFields![0].text
-                            let newMoney =  alertController.textFields![1].text ?? "0.0"
-                              let newMoneyD = Double(newMoney) ?? 0.0
-                            editUser(index: indexPath.row, name: newName!, money: newMoneyD)
-                            self.tableView.reloadData()
-                          }
-                    
-                    alertController.addAction(alertAction1)
-                    alertController.addAction(alertAction2)
-
-                    present(alertController, animated: true, completion: nil)
+//         let currentItem = Users[indexPath.row]
+//        let moneyU = currentItem["Money"] as! Double
+//        let moneyUS: String = String(format:"%.1f", moneyU)
+//        
+//        let alertController = UIAlertController(title: "Edit user", message: nil, preferredStyle: .alert)
+//                    alertController.addTextField { (textField) in
+//                        textField.text = currentItem["Name"] as? String
+//                    }
+//                    alertController.addTextField { (textField2) in
+//                        textField2.text = moneyUS
+//                          }
+//                    
+//                    let alertAction1 = UIAlertAction(title: "Cancel", style: .default)
+//                    { (alert) in
+//                        
+//                    }
+//                    let alertAction2 = UIAlertAction(title: "Save", style: .cancel)
+//                          { (alert) in
+//                              //добавить новую запись
+//                           let newName = alertController.textFields![0].text
+//                            let newMoney =  alertController.textFields![1].text ?? "0.0"
+//                              let newMoneyD = Double(newMoney) ?? 0.0
+//                            editUser(index: indexPath.row, name: newName!, money: newMoneyD)
+//                            self.tableView.reloadData()
+//                          }
+//                    
+//                    alertController.addAction(alertAction1)
+//                    alertController.addAction(alertAction2)
+//
+//                    present(alertController, animated: true, completion: nil)
           // }
         //todo
        }
     
+    override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+           if #available(iOS 13.0, *) {
+
+             let currentItem = Users[indexPath.row]
+            let moneyU = currentItem["Money"] as! Double
+            let moneyUS: String = String(format:"%.1f", moneyU)
+            
+            let alertController = UIAlertController(title: "Edit user", message: nil, preferredStyle: .alert)
+                        alertController.addTextField { (textField) in
+                            textField.text = currentItem["Name"] as? String
+                        }
+                        alertController.addTextField { (textField2) in
+                            textField2.text = moneyUS
+                              }
+                        
+                        let alertAction1 = UIAlertAction(title: "Cancel", style: .default)
+                        { (alert) in
+                            
+                        }
+                        let alertAction2 = UIAlertAction(title: "Save", style: .cancel)
+                              { (alert) in
+                                  //добавить новую запись
+                               let newName = alertController.textFields![0].text
+                                let newMoney =  alertController.textFields![1].text ?? "0.0"
+                                  let newMoneyD = Double(newMoney) ?? 0.0
+                                editUser(index: indexPath.row, name: newName!, money: newMoneyD)
+                                self.tableView.reloadData()
+                              }
+                        
+                        alertController.addAction(alertAction1)
+                        alertController.addAction(alertAction2)
+
+                        present(alertController, animated: true, completion: nil)
+           }
+           }
     /*
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {

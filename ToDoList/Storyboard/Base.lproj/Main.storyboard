@@ -116,18 +116,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="Tdy-9L-64U">
-                        <rightBarButtonItems>
-                            <barButtonItem systemItem="add" id="5lY-2B-wpZ">
-                                <connections>
-                                    <action selector="AddUser:" destination="5m6-eN-k6t" id="kX8-A5-Kxq"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem systemItem="edit" id="cKW-zB-hQg">
-                                <connections>
-                                    <action selector="EditUsers:" destination="5m6-eN-k6t" id="ewA-AV-AwW"/>
-                                </connections>
-                            </barButtonItem>
-                        </rightBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="5lY-2B-wpZ">
+                            <connections>
+                                <action selector="AddUser:" destination="5m6-eN-k6t" id="kX8-A5-Kxq"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pyv-5R-bj3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -231,13 +224,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Create new item" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZYI-FF-omZ">
-                                <rect key="frame" x="133" y="127" width="181" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="PriceTF" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Price 0.0" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bpt-AU-4up">
                                 <rect key="frame" x="75" y="276" width="265" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -265,6 +251,13 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" restorationIdentifier="TitleItem" text="Create new item" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="66d-95-43U">
+                                <rect key="frame" x="117" y="125" width="181" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="peQ-AJ-GFA"/>
@@ -279,6 +272,7 @@
                     <connections>
                         <outlet property="NameTF" destination="YFo-72-A5A" id="mQJ-Hq-6KV"/>
                         <outlet property="PriceTf" destination="bpt-AU-4up" id="bFx-CM-paA"/>
+                        <outlet property="TitleItem" destination="66d-95-43U" id="5Md-dX-duB"/>
                         <outlet property="UsersTV" destination="x11-kv-nTq" id="G5b-zC-gR1"/>
                     </connections>
                 </viewController>
@@ -291,7 +285,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QxD-b5-hAo" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="GTh-Gn-v5B">
+                    <navigationBar key="navigationBar" opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="GTh-Gn-v5B">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
